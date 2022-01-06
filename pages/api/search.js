@@ -6,6 +6,7 @@ export default function handler(req, res) {
   let posts;
 
   if (process.env.NODE_EN === 'product') {
+    posts = require('../../cache/data').posts;
   } else {
     const files = fs.readdirSync(path.join('posts'));
     posts = files.map((filename) => {
